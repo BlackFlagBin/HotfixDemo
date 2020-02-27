@@ -1,0 +1,27 @@
+apply plugin: "groovy"
+apply plugin: "maven"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.build:gradle:3.6.0'
+    implementation gradleApi()
+    implementation localGroovy()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = "com.zhibin.plugin"
+            pom.version = "1.0.0"
+            repository(url: uri("../repo"))
+        }
+    }
+}
+
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
