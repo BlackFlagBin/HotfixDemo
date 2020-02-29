@@ -14,6 +14,14 @@ public class MainActivity extends AppCompatActivity {
         Log.d("hello", "world");
         Log.d("hello", "world");
         Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+    }
+
+    void hello() {
+        System.out.println("hello");
     }
 
 
