@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("hello");
         Log.d("hello", "world");
         Log.d("hello", "world");
-        Log.d("hello", "world");
+        Log.d("hello", "world11111");
         Log.d("hello", "world");
         Log.d("hello", "world");
         Log.d("hello", "world");
@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("hello", "world");
         Log.d("hello", "world");
         Log.d("hello", "world");
-        Log.d("hello", "world");
-        Log.d("hello", "world");
-        Log.d("hello", "world");
+        Log.d("hello", "world1111");
         Log.d("hello", "world");
     }
 
@@ -54,6 +52,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("hello", "world");
         Log.d("hello", "world");
         Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world222");
+        Log.d("hello", "world33");
         Log.d("hello", "world");
     }
 
