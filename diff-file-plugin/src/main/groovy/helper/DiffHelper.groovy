@@ -34,8 +34,8 @@ class DiffHelper {
 
         String currentBranchName = repository.getBranch()
 
-        AbstractTreeIterator oldTreeParser = prepareTreeParser(repository, "refs/heads/${currentBranchName}")
-        AbstractTreeIterator newTreeParser = prepareTreeParser(repository, "refs/heads/master")
+        AbstractTreeIterator newTreeParser = prepareTreeParser(repository, "refs/heads/${currentBranchName}")
+        AbstractTreeIterator oldTreeParser = prepareTreeParser(repository, "refs/heads/master")
 
         List<DiffEntry> diff = git.diff().setOldTree(oldTreeParser).setNewTree(newTreeParser).setShowNameAndStatusOnly(true).call()
         List<String> changedClassFullNameList = new ArrayList<>()
