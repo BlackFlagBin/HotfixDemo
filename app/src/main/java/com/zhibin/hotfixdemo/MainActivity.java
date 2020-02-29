@@ -58,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d("hello", "world222");
         Log.d("hello", "world33");
         Log.d("hello", "world");
+
+    }
+
+    void he() {
+        String expr = "(public|private|protected)?\\s{0,}([\\w<>,\\[\\]]+)?\\s{0,}([a-z][\\w]+)\\s?\\(([A-Z][\\w\\[\\]<,>]+\\s+[\\w]+\\s?,?\\s?){0," +
+                "}\\)\\s?([\\w]{6,}\\s?[\\w]{9})?\\s{0,}\\{\\s?";
     }
 
 }

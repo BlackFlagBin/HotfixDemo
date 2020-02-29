@@ -17,7 +17,15 @@ import org.gradle.internal.impldep.org.eclipse.jgit.treewalk.CanonicalTreeParser
 class DiffHelper {
 
     static void main(String[] args) {
-        getChangedClassFullNameListBetweenBranch()
+        getChangedClassFullNameListBetweenBranch(DiffEntry.ChangeType.ADD)
+        println("----------------")
+        println("----------------")
+        println("----------------")
+        println("----------------")
+        println("----------------")
+        println("----------------")
+        println("----------------")
+        getChangedClassFullNameListBetweenBranch(DiffEntry.ChangeType.MODIFY)
     }
 
     static Repository openRepository() throws IOException {
@@ -28,7 +36,7 @@ class DiffHelper {
             .build()
     }
 
-    static List<String> getChangedClassFullNameListBetweenBranch() {
+    static List<String> getChangedClassFullNameListBetweenBranch(DiffEntry.ChangeType changeType) {
         Repository repository = openRepository()
         Git git = new Git(repository)
 
@@ -37,19 +45,18 @@ class DiffHelper {
         AbstractTreeIterator newTreeParser = prepareTreeParser(repository, "refs/heads/${currentBranchName}")
         AbstractTreeIterator oldTreeParser = prepareTreeParser(repository, "refs/heads/master")
 
-        List<DiffEntry> diff = git.diff().setOldTree(oldTreeParser).setNewTree(newTreeParser).setShowNameAndStatusOnly(true).call()
+        List<DiffEntry> diff = git.diff().setOldTree(oldTreeParser).setNewTree(newTreeParser).setContextLines(20).call()
         List<String> changedClassFullNameList = new ArrayList<>()
         diff.findAll {
-            return (it.changeType == DiffEntry.ChangeType.ADD || it.changeType == DiffEntry.ChangeType.MODIFY) && it.newPath.endsWith(".java")
+            return (it.changeType == changeType) && it.newPath.endsWith(".java")
         }.forEach() {
-            DiffFormatter formatter=new DiffFormatter(System.out)
+            DiffFormatter formatter = new DiffFormatter(System.out)
             formatter.setRepository(repository)
             formatter.format(it)
 
             String tempStr = it.newPath.replaceAll(File.separator, ".")
             String resStr = tempStr.substring(tempStr.indexOf("src.main.java") + "src.main.java".length() + 1, tempStr.length() - ".java".length())
             println(resStr)
-
             changedClassFullNameList.add(resStr)
         }
         println(changedClassFullNameList)
@@ -68,8 +75,10 @@ class DiffHelper {
 
         walk.dispose()
 
+
         return treeParser
 
     }
+
 
 }
