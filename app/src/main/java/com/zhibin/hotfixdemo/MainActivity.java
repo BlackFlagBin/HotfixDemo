@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void hello() {
-        System.out.println("hello");
+        System.out.println("world");
     }
 
     void hello1() {
