@@ -1,9 +1,9 @@
 package com.zhibin.hotfixdemo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,5 +24,37 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("hello");
     }
 
+    void hello1() {
+        System.out.println("hello");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+    }
+
+    void hello2() {
+        System.out.println("hello");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+    }
+
+    void hello3() {
+        System.out.println("hello");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+        Log.d("hello", "world");
+    }
 
 }
