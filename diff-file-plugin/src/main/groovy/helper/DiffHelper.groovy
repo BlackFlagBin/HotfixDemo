@@ -2,11 +2,14 @@ package helper
 
 import com.android.SdkConstants
 import com.android.build.api.transform.TransformInput
+import javassist.CannotCompileException
 import javassist.ClassPool
 import javassist.CtClass
 import javassist.CtMethod
 import javassist.NotFoundException
 import javassist.bytecode.MethodInfo
+import javassist.expr.ExprEditor
+import javassist.expr.MethodCall
 import org.apache.commons.io.FileUtils
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.diff.DiffEntry
@@ -98,20 +101,19 @@ class DiffHelper {
         List<CtClass> ctClassList = toCtClasses(inputs, ClassPool.getDefault())
         CtClass ctClass = ctClassList.find { it.name = className }
 
-
-        println("ctClassList ----- " + ctClassList.toString())
         println("ctClass ----- " + ctClass.name)
 
         CtMethod[] declaredMethods = ctClass.getDeclaredMethods()
 
         println("method List ----- " + declaredMethods.toArrayString())
 
+
         for (CtMethod ctMethod : declaredMethods) {
             try {
                 MethodInfo methodInfo = ctMethod.getMethodInfo()
                 if (methodInfo.isMethod()) {
                     println(methodInfo.getName())
-                    int lineNumber = ctMethod.getMethodInfo().getLineNumber(0)
+                    int lineNumber = ctMethod.getMethodInfo().getLineNumber(1)
                     println("lineNumber:" + lineNumber)
                 }
             } catch (Exception e) {
