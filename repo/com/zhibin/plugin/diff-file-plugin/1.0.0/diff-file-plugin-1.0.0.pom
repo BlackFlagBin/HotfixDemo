@@ -12,5 +12,23 @@
       <version>3.6.0</version>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.20.0-GA</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit</artifactId>
+      <version>5.6.0.201912101111-r</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jgit</groupId>
+      <artifactId>org.eclipse.jgit.archive</artifactId>
+      <version>5.6.0.201912101111-r</version>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
 </project>
